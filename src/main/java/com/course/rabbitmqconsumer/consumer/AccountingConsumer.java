@@ -10,15 +10,15 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-//@Service
-public class EmployeeJsonConsumer {
+@Service
+public class AccountingConsumer {
 
 	private ObjectMapper objectMapper = new ObjectMapper();
 
-//	@RabbitListener(queues = "course.employee")
+	@RabbitListener(queues = "q.hr.accounting")
 	public void listen(String message) throws JsonParseException, JsonMappingException, IOException {
 		Employee e = objectMapper.readValue(message, Employee.class);
-		System.out.println(e);
+		System.out.println("On accounting : " + e);
 	}
 
 }

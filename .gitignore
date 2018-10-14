@@ -2,3 +2,7 @@ bin/
 build.gradle
 settings.gradle
 gradle/
+/.gradle/
+.classpath
+.project
+.settings/
